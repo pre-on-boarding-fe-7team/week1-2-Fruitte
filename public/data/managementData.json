@@ -1,0 +1,149 @@
+
+[
+  {
+    "id": 1,
+    "name": "구기자 발효 수제 고추장 1kg, 2kg",
+    "images":[
+      {
+        "position":1,
+        "url":"https://cdn.imweb.me/thumbnail/20220622/7fae9ba860789.jpg"
+      },
+      {
+        "position":2,
+        "url":"https://cdn.imweb.me/thumbnail/20220622/bbf4a6989371e.jpg"
+      },
+      {
+        "position":3,
+        "url":"https://cdn.imweb.me/thumbnail/20220622/fec885830ef59.jpg"
+      }
+    ],
+    "date":"2022-09-02 21:38:09",
+    "from":"충청남도 청양군",
+    "datail":"국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 고추장<br>엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다.",
+    "price": 70000,
+    "salePrice": 25000, 
+    "likes":100,
+    "isMD":true,
+    "isBest":false,
+    "salesList": [
+      {
+        "index": 1,
+        "title": "고추장 1kg",
+        "price": 25000,
+        "quantity": 300
+      },
+      {
+        "index": 2,
+        "title": "고추장 2kg",
+        "price": 49000,
+        "quantity": 300
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "전통 재래식 메주로 띄운 수제 된장 1kg, 2kg",
+    "images":[
+      {
+        "position":1,
+        "url":"https://cdn.imweb.me/thumbnail/20220622/e1d8e149b8f58.jpg"
+      },
+      {
+        "position":2,
+        "url":"https://cdn.imweb.me/thumbnail/20220622/29fd42b490ba3.jpg"
+      },
+      {
+        "position":3,
+        "url":"https://cdn.imweb.me/thumbnail/20220622/e09dbb6d06bfc.jpg"
+      }
+    ],
+    "date":"2022-09-02 18:38:09",
+    "from":"충청남도 청양군",
+    "datail":"국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 된장<br>엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다.",
+    "price": 60000,
+    "salePrice": 19000, 
+    "likes":1500,
+    "isMD":true,
+    "isBest":false,
+    "salesList": [
+      {
+        "index": 1,
+        "title": "된장 1kg",
+        "price": 19000,
+        "quantity": 300
+      },
+      {
+        "index": 2,
+        "title": "된장 2kg",
+        "price": 37000,
+        "quantity": 300
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "청양 전통 수제 간장 500ml, 1L",
+    "images":[
+      {
+        "position":1,
+        "url":"https://cdn.imweb.me/thumbnail/20220622/cffd1aa63f3f9.jpg"
+      },
+      {
+        "position":2,
+        "url":"https://cdn.imweb.me/thumbnail/20220622/be1433c679d82.jpg"
+      },
+      {
+        "position":3,
+        "url":"https://cdn.imweb.me/thumbnail/20220622/e0e5cda8ff193.jpg"
+      }
+    ],
+    "date":"2022-09-02 19:38:09",
+    "from":"충청남도 청양군",
+    "datail":"국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 간장<br>엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다.",
+    "price": 16000,
+    "salePrice": 12500, 
+    "likes":100,
+    "isMD":true,
+    "isBest":false,
+    "salesList": [
+      {
+        "index": 1,
+        "title": "간장 500ml",
+        "price": 6500,
+        "quantity": 300
+      },
+      {
+        "index": 2,
+        "title": "간장 1L",
+        "price": 12500,
+        "quantity": 300
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "물에 타먹는 제주 수제 감귤칩(10봉지x1BOX)",
+    "images":[
+      {
+        "position":1,
+        "url":"https://cdn.imweb.me/thumbnail/20220520/873c30ce7d7f4.png"
+      }
+    ],
+    "date":"2022-09-02 20:28:09",
+    "from":"충청남도 청양군",
+    "datail":"감귤을 즐기는 색다른 방법!<br>상큼함과 달달함이 고루 담겨진 바삭한 감귤칩을 만나보세요.<br>영양은 그대로~ 언제 어디서나 맛 볼 수 있는 감귤과자!",
+    "price": 60000,
+    "salePrice": 25000, 
+    "likes":420,
+    "isMD":true,
+    "isBest":false,
+    "salesList": [
+      {
+        "index": 1,
+        "title": "제주 수제 감귤칩",
+        "price": 25000,
+        "quantity": 300
+      }
+    ]
+  }
+]
