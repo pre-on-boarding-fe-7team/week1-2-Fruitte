@@ -1,7 +1,8 @@
 import './App.css';
+import OrderDetail from './pages/OrderDetail';
 
 function App() {
-  return <h3>hello!</h3>;
+  return <OrderDetail />;
 }
 
 export default App;
