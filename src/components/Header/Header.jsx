@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Headers, Img, Ul, Li, UlSign, LiSign } from './Header.style';
 
 export default function Header() {
@@ -8,7 +9,9 @@ export default function Header() {
       <Ul>
         <Li>FRUITTE</Li>
         <Li>FRUIT NOW</Li>
-        <Li>FRUIT STORE</Li>
+        <Li>
+          <Link to="/">FRUIT STORE</Link>
+        </Li>
         <Li>FRUIT PLAY</Li>
         <Li>ABOUT US</Li>
       </Ul>
