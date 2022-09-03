@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { MdDelete } from 'react-icons/md';
-import { Li, Img } from './ManagementProduct.style';
+import { Li, Img, Button, SpanWrap } from './ManagementProduct.style';
 
 export default function ManagementProduct({ id, name, images, date, show, productDelete }) {
   const [updateShow, setUpdateShow] = useState(show);
@@ -22,13 +22,17 @@ export default function ManagementProduct({ id, name, images, date, show, produc
 
   return (
     <Li>
-      <Img src={handleImage()} alt="이미지" />
-      <span>{name}</span>
-      <button type="button" onClick={() => handleProductDelete(id)}>
-        <MdDelete />
-      </button>
-      <button onClick={() => handleProductShow(id)}>{updateShow ? '노출' : '제거'}</button>
-      <span>{date}</span>
+      <SpanWrap>
+        <Img src={handleImage()} alt="이미지" />
+        <span>{name}</span>
+        <span>{date}</span>
+      </SpanWrap>
+      <SpanWrap>
+        <Button type="button" onClick={() => handleProductDelete(id)}>
+          <MdDelete />
+        </Button>
+        <Button onClick={() => handleProductShow(id)}>{updateShow ? '노출' : '제거'}</Button>
+      </SpanWrap>
     </Li>
   );
 }
