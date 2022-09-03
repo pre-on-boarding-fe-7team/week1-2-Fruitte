@@ -1,20 +1,26 @@
 import { useState, useEffect } from 'react';
-import ManagementProduct from '../components/Management/ManagementProduct';
+import ManagementProduct from '../../components/Management/ManagementProduct';
 
 export default function Management() {
   const [manageList, setManageList] = useState([]);
+  const [isUpdated, setIsUpdated] = useState(false);
   useEffect(() => {
-    fetch('/data/managementData.json', {
+    setIsUpdated(false);
+    fetch('http://localhost:8000/products/', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         setManageList(data);
       });
-  }, []);
+  }, [isUpdated]);
 
-  const productDelete = id => {
-    setManageList(manageList.filter(product => product.id !== id));
+  const handleDelete = id => {
+    fetch(`http://localhost:8000/products/${id}`, {
+      method: 'DELETE',
+    }).then(res => {
+      setIsUpdated(true);
+    });
   };
 
   return (
@@ -28,7 +34,7 @@ export default function Management() {
             images={product.images}
             date={product.date}
             show={product.show}
-            productDelete={productDelete}
+            productDelete={handleDelete}
           />
         );
       })}
