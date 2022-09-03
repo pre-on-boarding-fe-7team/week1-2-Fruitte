@@ -21,6 +21,7 @@ export const ProductList = styled.div`
   ul {
     display: flex;
     flex-direction: column;
+    width: 100%;
     height: fit-content;
     margin: 0;
     padding: 0;
