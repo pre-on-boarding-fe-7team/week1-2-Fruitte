@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import { faker } from '@faker-js/faker';
+import { Table } from './OrderCheck.style';
 
 //주문 내역이 없다면 '주문 내역이 없습니다.'
 
@@ -18,35 +18,29 @@ const OrderCheck = () => {
     }));
 
   return (
-    <Container>
-      <table>
-        <thead>
-          <tr>
-            {columns.map(column => (
-              <th key={column}>{column}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(({ num, image, name, quantity, option }) => (
-            <tr key={num}>
-              <td>{num}</td>
-              <td>
-                <img src={image} alt="productImage" />
-              </td>
-              <td>{name}</td>
-              <td>{quantity}</td>
-              <td>{option} kg</td>
-            </tr>
+    <Table>
+      <thead>
+        <tr>
+          {columns.map(column => (
+            <th key={column}>{column}</th>
           ))}
-        </tbody>
-      </table>
-    </Container>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map(({ num, image, name, quantity, option }) => (
+          <tr key={num}>
+            <td>{num}</td>
+            <td>
+              <img src={image} alt="productImage" />
+            </td>
+            <td>{name}</td>
+            <td>{quantity}</td>
+            <td>{option} kg</td>
+          </tr>
+        ))}
+      </tbody>
+    </Table>
   );
 };
 
-const Container = styled.div`
-  background-color: antiquewhite;
-  margin-top: 3rem;
-`;
 export default OrderCheck;
