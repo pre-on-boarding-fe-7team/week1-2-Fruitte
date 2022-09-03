@@ -21,7 +21,7 @@ const SalesList = ({ list, changeHandler, deleteHandler }) => {
   return list.map(item => (
     <Container key={item.index}>
       <Left>
-        <Sales {...item} changeHandler={() => changeHandler(item.index)} />
+        <Sales {...item} changeHandler={changeHandler(item.index)} />
       </Left>
       <Right>
         <button type="button" onClick={() => deleteHandler(item.index)}>

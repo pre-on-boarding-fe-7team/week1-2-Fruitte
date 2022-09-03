@@ -62,6 +62,7 @@ const RegistForm = () => {
         setSalesList(state => {
           const filteredList = state.filter(item => item.index !== index);
           const target = state.find(item => item.index === index);
+          console.log(filteredList, target);
           return [...filteredList, { ...target, [name]: value }];
         });
       },
