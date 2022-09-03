@@ -4,11 +4,14 @@ export const Headers = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 90px;
   padding: 0 30px;
   box-sizing: border-box;
+  background: #fff;
 `;
 
 export const Img = styled.img`
@@ -19,6 +22,7 @@ export const Ul = styled.ul`
   display: flex;
   align-items: center;
   position: absolute;
+  width: max-content;
   height: 100%;
   left: 50%;
   transform: translateX(-50%);
