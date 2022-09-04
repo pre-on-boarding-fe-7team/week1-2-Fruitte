@@ -3,7 +3,22 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { get } from '../api/api';
 import Pagination from './pagination/Pagination';
-import { Container, Img, Li, Ol, Price, SalePrice, Title } from './ProductList.style';
+import {
+  IconContainer,
+  Container,
+  Img,
+  Li,
+  Ol,
+  Price,
+  SalePrice,
+  Title,
+  Icon,
+  InfoContainer,
+  BEST,
+  SALE,
+  ImgWrapper,
+  DescriptionContainer,
+} from './ProductList.style';
 
 const LIMIT = 10;
 
@@ -32,10 +47,24 @@ function ProductsList() {
       <Ol>
         {products?.slice(offest, offest + LIMIT).map((product, index) => (
           <Li key={product.id}>
-            <Img src={product.images} alt="이미지입니다." />
-            <Title>{product.name}</Title>
-            <Price>{moneyUnit(product.price)}원</Price>
-            <SalePrice>{moneyUnit(product.salePrice)}원</SalePrice>
+            <ImgWrapper>
+              <Img src={product.images} alt="이미지입니다." />
+              <DescriptionContainer>
+                <p>{product.detail}</p>
+              </DescriptionContainer>
+            </ImgWrapper>
+            <InfoContainer>
+              <Title>{product.name}</Title>
+              <div>
+                <Price>{moneyUnit(product.price)}원</Price>
+                <SalePrice>{moneyUnit(product.salePrice)}원</SalePrice>
+              </div>
+              <IconContainer>
+                <SALE>SALE</SALE>
+                {product.isMD && <Icon>MD</Icon>}
+                {product.isBest && <BEST>BEST</BEST>}
+              </IconContainer>
+            </InfoContainer>
           </Li>
         ))}
       </Ol>
