@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { faker } from '@faker-js/faker';
 import { Container, Table, Td, SmallSpan, BoldDiv, Button } from './OrderTable.style';
 
 const OrderTable = () => {
-  // const columns = ['주문번호', '상품명', '수량', '옵션'];
+  // useEffect(()=>{
+
+  // })
 
   const data = Array(7)
     .fill()
@@ -20,13 +22,6 @@ const OrderTable = () => {
   return (
     <Container>
       <Table>
-        {/* <thead>
-          <tr>
-            {columns.map(column => (
-              <th key={column}>{column}</th>
-            ))}
-          </tr>
-        </thead> */}
         <tbody>
           {data.map(({ num, image, name, quantity, option, date, price }) => (
             <tr key={num}>
