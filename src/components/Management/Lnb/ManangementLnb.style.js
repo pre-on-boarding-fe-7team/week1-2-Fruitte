@@ -20,5 +20,8 @@ export const Li = styled.li`
 
   span {
     border-bottom: 2px solid ${props => props.theme.colors.lightgreen};
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
   }
 `;

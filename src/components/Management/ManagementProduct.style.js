@@ -34,7 +34,12 @@ export const DateSpan = styled.span`
 `;
 
 export const Span = styled.span`
+  color: #404040;
   margin-top: 0.6rem;
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+  }
 `;
 
 export const Button = styled.button`

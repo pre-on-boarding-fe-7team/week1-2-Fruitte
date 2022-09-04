@@ -118,6 +118,14 @@ export const Li = styled.li`
       flex: none;
     }
   }
+
+  @media (max-width: 768px) {
+    a.active {
+      &:after {
+        bottom: 5px;
+      }
+    }
+  }
 `;
 
 export const UlSign = styled.ul`
