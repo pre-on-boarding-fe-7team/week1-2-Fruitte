@@ -60,10 +60,11 @@ const RegistForm = () => {
     index =>
       ({ target: { name, value } }) => {
         setSalesList(state => {
-          const filteredList = state.filter(item => item.index !== index);
-          const target = state.find(item => item.index === index);
-          console.log(filteredList, target);
-          return [...filteredList, { ...target, [name]: value }];
+          const list = [...state];
+          const targetIndex = state.findIndex(item => item.index === index);
+          list[targetIndex][name] = value;
+          console.log(list);
+          return list;
         });
       },
     []
@@ -102,32 +103,34 @@ const RegistForm = () => {
       </Container>
 
       <Container>
-        <label>MD</label>
-        <input type="checkbox" name="isMd" onChange={checkHandler} />
-      </Container>
-      <Container>
-        <label>BEST</label>
-        <input type="checkbox" name="isBest" onChange={checkHandler} />
+        <label>
+          MD
+          <input type="checkbox" name="isMd" onChange={checkHandler} />
+        </label>
+
+        <label>
+          BEST
+          <input type="checkbox" name="isBest" onChange={checkHandler} />
+        </label>
       </Container>
 
-      <label>상세정보</label>
       <Container>
+        <label>상세정보</label>
         <textarea name="detail" rows="10" style={{ resize: 'none' }} onChange={changeHandler} />
       </Container>
 
-      <label>이미지</label>
       <Container>
+        <label>이미지</label>
         <input type="file" multiple accept="image/*" onChange={changeImageHandler} />
       </Container>
 
-      {/* salesList START */}
       <Container>
-        <Container>
-          <label>판매목록</label>
+        <label>
+          판매목록
           <button type="button" onClick={addSalesHandler}>
             추가
           </button>
-        </Container>
+        </label>
 
         <SalesList
           list={salesList}
@@ -135,7 +138,6 @@ const RegistForm = () => {
           deleteHandler={deleteSalesHandler}
         />
       </Container>
-      {/* salesList END */}
 
       <button type="submit">등록</button>
       <button type="button">취소</button>

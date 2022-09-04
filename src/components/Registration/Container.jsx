@@ -6,16 +6,19 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-  //   & label {
-  //     flex: 0 0 25%;
-  //     max-width: 25%;
-  //   }
+  & textarea {
+    width: 100%;
+  }
 
-  //   & input[type='text'],
-  //   input[type='number'] {
-  //     flex: 0 0 75%;
-  //     max-width: 75%;
-  //   }
+  & label {
+    // flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  & input {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 `;
 
 export default Container;
