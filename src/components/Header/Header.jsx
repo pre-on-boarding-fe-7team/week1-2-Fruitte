@@ -7,7 +7,7 @@ export default function Header() {
     <Headers>
       <Img src="https://cdn.imweb.me/thumbnail/20210215/9c484dd3f6e7f.jpg" alt="로고" />
 
-      {/* <GrMenu /> */}
+      <GrMenu />
       <Ul>
         <Li>FRUITTE</Li>
         <Li>FRUIT NOW</Li>
