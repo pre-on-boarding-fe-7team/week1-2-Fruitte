@@ -31,3 +31,10 @@ export const BoldDiv = styled.div`
   font-weight: bold;
   color: #483838;
 `;
+
+export const Button = styled.button`
+  background-color: #90b77d;
+  margin-top: 0.5rem;
+  border-radius: 0.2rem;
+  color: white;
+`;

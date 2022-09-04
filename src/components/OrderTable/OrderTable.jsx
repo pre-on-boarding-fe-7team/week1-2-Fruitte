@@ -1,6 +1,6 @@
 import React from 'react';
 import { faker } from '@faker-js/faker';
-import { Container, Table, Td, SmallSpan, BoldDiv } from './OrderTable.style';
+import { Container, Table, Td, SmallSpan, BoldDiv, Button } from './OrderTable.style';
 
 const OrderTable = () => {
   // const columns = ['주문번호', '상품명', '수량', '옵션'];
@@ -52,7 +52,7 @@ const OrderTable = () => {
                 <div>
                   <SmallSpan>{num}</SmallSpan>
                 </div>
-                <button>리뷰쓰기</button>
+                <Button>리뷰쓰기</Button>
               </Td>
             </tr>
           ))}
