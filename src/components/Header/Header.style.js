@@ -11,7 +11,7 @@ export const Headers = styled.header`
   height: 90px;
   padding: 0 30px;
   box-sizing: border-box;
-  background: #fff;
+  background: #ffffff;
 `;
 
 export const Img = styled.img`
