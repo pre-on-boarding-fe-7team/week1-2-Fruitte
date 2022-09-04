@@ -6,6 +6,7 @@ import Management from './components/Management/Management';
 import OrderDetail from './components/OrderDetail/OrderDetail';
 import Registration from './components/Registration/Registration';
 import ProductDetail from './components/ProductsDetail/ProductDetail';
+import Order from './components/Order/Order';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/manage" element={<Management />} />
         <Route path="/regist" element={<Registration />} />
         <Route path="/detail/:id" element={<ProductDetail />} />
+        <Route path="/order/:id" element={<Order />} />
       </Routes>
     </>
   );

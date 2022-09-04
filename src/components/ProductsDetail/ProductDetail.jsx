@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Data from '../data/data.json';
+import Data from '../../data/data.json';
 import styled from 'styled-components';
-import Tab from '../components/Categorize/Tab';
+import Tab from '../Categorize/Tab';
 
 function ProductDetail() {
   let [items] = useState(Data.products);
@@ -188,9 +188,6 @@ export const Select = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  &:focus {
-    border-color: red;
-  }
 `;
 
 const IconSVG = styled.svg`
