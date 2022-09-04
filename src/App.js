@@ -1,5 +1,5 @@
 import './App.css';
-import OrderDetail from './pages/OrderDetail';
+import OrderDetail from './components/OrderDetail/OrderDetail';
 
 function App() {
   return <OrderDetail />;

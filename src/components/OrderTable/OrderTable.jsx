@@ -1,8 +1,8 @@
 import React from 'react';
 import { faker } from '@faker-js/faker';
-import { Container, Table, Td } from './OrderCheck.style';
+import { Container, Table, Td, SmallSpan, BoldDiv } from './OrderTable.style';
 
-const OrderCheck = () => {
+const OrderTable = () => {
   // const columns = ['주문번호', '상품명', '수량', '옵션'];
 
   const data = Array(7)
@@ -34,20 +34,24 @@ const OrderCheck = () => {
                 <img src={image} alt="productImage" />
               </Td>
               <Td>
-                <div>{name}</div>
+                <BoldDiv>{name}</BoldDiv>
                 <div>
-                  <span>수량 : {quantity} | </span>
-                  <span>옵션 : {option} kg</span>
+                  <SmallSpan>수량 : {quantity} | </SmallSpan>
+                  <SmallSpan>옵션 : {option} kg</SmallSpan>
                 </div>
                 <div>
-                  <span>{price}원 | </span>
-                  <span>{date}</span>
+                  <SmallSpan>{price}원 | </SmallSpan>
+                  <SmallSpan>{date}</SmallSpan>
                 </div>
               </Td>
               <Td>배송중</Td>
               <Td>
-                <div>주문번호</div>
-                <div>{num}</div>
+                <div>
+                  <SmallSpan>주문번호</SmallSpan>
+                </div>
+                <div>
+                  <SmallSpan>{num}</SmallSpan>
+                </div>
                 <button>리뷰쓰기</button>
               </Td>
             </tr>
@@ -58,4 +62,4 @@ const OrderCheck = () => {
   );
 };
 
-export default OrderCheck;
+export default OrderTable;
