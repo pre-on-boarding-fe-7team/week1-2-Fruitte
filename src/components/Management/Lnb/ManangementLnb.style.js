@@ -5,6 +5,12 @@ export const Ul = styled.ul`
   width: 16%;
   margin: 0;
   padding: 0;
+
+  @media (max-width: 768px) {
+    & {
+      width: 100%;
+    }
+  }
 `;
 
 export const Li = styled.li`
@@ -13,6 +19,6 @@ export const Li = styled.li`
   padding: 20px 0;
 
   span {
-    border-bottom: 2px solid #119411;
+    border-bottom: 2px solid #90b77d;
   }
 `;

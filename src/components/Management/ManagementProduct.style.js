@@ -13,6 +13,30 @@ export const Li = styled.li`
   }
 `;
 
+export const Img = styled.img`
+  width: 3rem;
+  border-radius: 50%;
+`;
+
+export const TextWrap = styled.span`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 8px;
+  padding: 4px 0;
+`;
+
+export const DateSpan = styled.span`
+  position: absolute;
+  top: -0.2rem;
+  font-size: 0.8rem;
+  color: #90b77d;
+`;
+
+export const Span = styled.span`
+  margin-top: 0.6rem;
+`;
+
 export const Button = styled.button`
   display: flex;
   align-items: center;
@@ -23,10 +47,10 @@ export const Button = styled.button`
   padding: 0;
   margin: 0;
   background: none;
-  border: 1px solid #119411;
+  border: 1px solid #42855b;
   border-radius: 4px;
   font-size: 18px;
-  color: #119411;
+  color: #42855b;
   cursor: pointer;
 
   & + button {
@@ -35,20 +59,16 @@ export const Button = styled.button`
 `;
 
 export const DeleteButton = styled(Button)`
-  border-color: #101010;
-  color: #101010;
+  border-color: #483838;
+  color: #483838;
 `;
 
-export const Img = styled.img`
-  width: 40px;
-  border-radius: 50%;
+export const SpanLeftWrap = styled.span`
+  display: flex;
+  align-items: center;
 `;
 
 export const SpanWrap = styled.span`
   display: flex;
   align-items: center;
-
-  span {
-    margin: 0 8px;
-  }
 `;
