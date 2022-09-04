@@ -1,17 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
-import styled from 'styled-components';
+import { MdAddCircle } from 'react-icons/md';
 import Container from './Container';
+import { Button, Cancel, Confirm, Error, Form, Input, Label, Textarea } from './RegistForm.style';
 import SalesList from './SalesList';
 
-const Form = styled.form`
-  padding-left: 20%;
-  padding-right: 20%;
-`;
-
-const Error = styled.span`
-  font-size: 14px;
-  color: red;
-`;
+const initSalesList = [{ index: 1, title: '', price: 0, quantity: 0 }];
 
 const initInfo = {
   name: null,
@@ -22,8 +15,6 @@ const initInfo = {
   isBest: false,
   detail: null,
 };
-
-const initSalesList = [{ index: 1, title: '', price: 0, quantity: 0 }];
 
 const RegistForm = () => {
   const [info, setInfo] = useState(initInfo);
@@ -135,8 +126,8 @@ const RegistForm = () => {
   return (
     <Form onSubmit={submitHandler}>
       <Container>
-        <label>상품명</label>
-        <input
+        <Label>상품명</Label>
+        <Input
           type="text"
           name="name"
           autoFocus
@@ -147,19 +138,18 @@ const RegistForm = () => {
       </Container>
 
       <Container>
-        <label>대표 가격</label>
-        <input
+        <Label>대표 가격</Label>
+        <Input
           type="number"
           name="price"
-          min="1"
           onChange={changeHandler}
           onBlur={blurHandler(['REQUIRED', 'CURRENCY'])}
         />
         {<Error>{errors.price}</Error> || null}
       </Container>
       <Container>
-        <label>대표 할인 가격</label>
-        <input
+        <Label>대표 할인 가격</Label>
+        <Input
           type="number"
           name="salePrice"
           min="1"
@@ -170,40 +160,40 @@ const RegistForm = () => {
       </Container>
 
       <Container>
-        <label>원산지</label>
-        <input type="text" name="from" onChange={changeHandler} />
+        <Label>원산지</Label>
+        <Input type="text" name="from" onChange={changeHandler} />
       </Container>
 
       <Container>
-        <label>
+        <Label>
           MD
-          <input type="checkbox" name="isMd" onChange={checkHandler} />
-        </label>
+          <Input type="checkbox" name="isMd" onChange={checkHandler} />
+        </Label>
 
-        <label>
+        <Label>
           BEST
-          <input type="checkbox" name="isBest" onChange={checkHandler} />
-        </label>
+          <Input type="checkbox" name="isBest" onChange={checkHandler} />
+        </Label>
       </Container>
 
       <Container>
-        <label>상세정보</label>
-        <textarea name="detail" rows="10" style={{ resize: 'none' }} onChange={changeHandler} />
+        <Label>상세정보</Label>
+        <Textarea name="detail" rows="10" style={{ resize: 'none' }} onChange={changeHandler} />
       </Container>
 
       <Container>
-        <label>이미지</label>
-        <input type="file" multiple accept="image/*" onChange={changeImageHandler} />
+        <Label>이미지</Label>
+        <Input type="file" multiple accept="image/*" onChange={changeImageHandler} />
         {<Error>{errors.images}</Error> || null}
       </Container>
 
       <Container>
-        <label>
+        <Label>
           판매목록
-          <button type="button" onClick={addSalesHandler}>
-            추가
-          </button>
-        </label>
+          <Button type="button" onClick={addSalesHandler}>
+            <MdAddCircle size="20" color="#42855B" />
+          </Button>
+        </Label>
 
         <SalesList
           list={salesList}
@@ -213,10 +203,10 @@ const RegistForm = () => {
         {<Error>{errors.salesList}</Error> || null}
       </Container>
 
-      <button type="submit" disabled={errors}>
+      <Confirm type="submit" disabled={Object.keys(errors).length === 0 ? true : false}>
         등록
-      </button>
-      <button type="button">취소</button>
+      </Confirm>
+      <Cancel type="button">취소</Cancel>
     </Form>
   );
 };
