@@ -1,7 +1,17 @@
 import { useState } from 'react';
 import { IoTrashBin } from 'react-icons/io5';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
-import { Li, Img, Button, DeleteButton, SpanWrap } from './ManagementProduct.style';
+import {
+  Li,
+  Img,
+  Button,
+  TextWrap,
+  DeleteButton,
+  SpanWrap,
+  DateSpan,
+  Span,
+  SpanLeftWrap,
+} from './ManagementProduct.style';
 
 export default function ManagementProduct({ id, name, images, date, show, productDelete }) {
   const [updateShow, setUpdateShow] = useState(show);
@@ -21,14 +31,19 @@ export default function ManagementProduct({ id, name, images, date, show, produc
     }
   };
 
+  const sliceDate = date => {
+    return date.slice(0, 16);
+  };
   return (
     <Li>
-      <SpanWrap>
+      <SpanLeftWrap>
         <Img src={handleImage()} alt="이미지" />
-        <span>{name}</span>
-      </SpanWrap>
+        <TextWrap>
+          <DateSpan>{sliceDate(date)}</DateSpan>
+          <Span>{name}</Span>
+        </TextWrap>
+      </SpanLeftWrap>
       <SpanWrap>
-        <span>{date}</span>
         <Button onClick={() => handleProductShow(id)}>
           {updateShow ? <IoMdEye /> : <IoMdEyeOff />}
         </Button>
