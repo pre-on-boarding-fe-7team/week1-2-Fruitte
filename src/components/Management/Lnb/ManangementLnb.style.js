@@ -19,6 +19,6 @@ export const Li = styled.li`
   padding: 20px 0;
 
   span {
-    border-bottom: 2px solid #90b77d;
+    border-bottom: 2px solid ${props => props.theme.colors.lightgreen};
   }
 `;
