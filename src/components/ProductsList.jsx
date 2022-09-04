@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { PAGINATION_LIMIT } from '../common/utils/constant';
 import { get } from '../api/api';
 import Pagination from './pagination/Pagination';
 import {
@@ -18,17 +19,18 @@ import {
   SALE,
   ImgWrapper,
   DescriptionContainer,
+  Heart,
+  Detail,
 } from './ProductList.style';
-
-const LIMIT = 10;
+import { AiOutlineHeart } from 'react-icons/ai';
 
 function ProductsList() {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
-  const offest = (page - 1) * LIMIT;
+  const offest = (page - 1) * PAGINATION_LIMIT;
   const getProductsList = async () => {
     const res = await get();
-    setProducts(res);
+    setProducts(res.products);
   };
 
   const handleSetPage = page => {
@@ -45,12 +47,15 @@ function ProductsList() {
   return (
     <Container>
       <Ol>
-        {products?.slice(offest, offest + LIMIT).map((product, index) => (
+        {products?.slice(offest, offest + PAGINATION_LIMIT).map((product, index) => (
           <Li key={product.id}>
             <ImgWrapper>
-              <Img src={product.images} alt="이미지입니다." />
+              <Img src={product.url} alt="이미지입니다." />
               <DescriptionContainer>
-                <p>{product.detail}</p>
+                <Detail>원산지: {product.from}</Detail>
+                <Heart>
+                  <AiOutlineHeart />
+                </Heart>
               </DescriptionContainer>
             </ImgWrapper>
             <InfoContainer>
@@ -70,7 +75,7 @@ function ProductsList() {
       </Ol>
       <div>
         <Pagination
-          totalPage={Math.ceil(products.length / LIMIT)}
+          totalPage={Math.ceil(products.length / PAGINATION_LIMIT)}
           page={page}
           handleSetPage={handleSetPage}
         />
