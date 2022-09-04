@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { get } from '../../../api/api';
 import { Container, Table, Td, SmallSpan, BoldDiv, Button } from './OrderTable.style';
 
 const OrderTable = () => {
   const [order, setOrder] = useState([]);
+  const navigate = useNavigate();
 
   const getOrderList = async () => {
     const res = await get();
@@ -14,6 +16,10 @@ const OrderTable = () => {
     getOrderList();
   }, []);
 
+  const onClick = id => {
+    navigate(`/detail/${id}`);
+  };
+
   return (
     <Container>
       <Table>
@@ -21,10 +27,17 @@ const OrderTable = () => {
           {order.map(({ id, 주문번호, url, name, salesList, date, price, 배송상태 }) => (
             <tr key={id}>
               <Td>
-                <img src={url} alt="productImage" style={{ width: '100px', height: '100px' }} />
+                <img
+                  onClick={() => onClick(id)}
+                  src={url}
+                  alt="productImage"
+                  style={{ width: '100px', height: '100px', cursor: 'pointer' }}
+                />
               </Td>
-              <Td title>
-                <BoldDiv>{name}</BoldDiv>
+              <Td title="true">
+                <BoldDiv onClick={() => onClick(id)} style={{ cursor: 'pointer' }}>
+                  {name}
+                </BoldDiv>
                 <div>
                   <SmallSpan>수량 : {salesList[0].quantity} | </SmallSpan>
                   <SmallSpan>옵션 : {salesList[0].title}</SmallSpan>
@@ -48,11 +61,18 @@ const OrderTable = () => {
               </Td>
               {/* mobile */}
               <Td mo>
-                <img src={url} alt="productImage" style={{ width: '100px', height: '100px' }} />
+                <img
+                  onClick={() => onClick(id)}
+                  src={url}
+                  alt="productImage"
+                  style={{ width: '100px', height: '100px', cursor: 'pointer' }}
+                />
               </Td>
               <Td mo>
                 <div>
-                  <BoldDiv>{name}</BoldDiv>
+                  <BoldDiv onClick={() => onClick(id)} style={{ cursor: 'pointer' }}>
+                    {name}
+                  </BoldDiv>
                   <div>
                     <SmallSpan>수량 : {salesList[0].quantity} | </SmallSpan>
                     <SmallSpan>옵션 : {salesList[0].title}</SmallSpan>
