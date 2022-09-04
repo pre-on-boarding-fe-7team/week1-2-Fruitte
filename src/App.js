@@ -5,6 +5,7 @@ import ProductsList from './components/ProductsList';
 import Management from './components/Management/Management';
 import OrderDetail from './components/OrderDetail/OrderDetail';
 import Registration from './components/Registration/Registration';
+import ProductDetail from './components/ProductsDetail/ProductDetail';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/mypage" element={<OrderDetail />} />
         <Route path="/manage" element={<Management />} />
         <Route path="/regist" element={<Registration />} />
+        <Route path="/detail/:id" element={<ProductDetail />} />
       </Routes>
     </>
   );
