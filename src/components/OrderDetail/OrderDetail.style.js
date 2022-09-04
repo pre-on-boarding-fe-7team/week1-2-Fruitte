@@ -17,7 +17,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  border: 2px solid blue;
   width: 100%;
   max-width: ${props => props.theme.size.pc};
   padding: 60px 20px;

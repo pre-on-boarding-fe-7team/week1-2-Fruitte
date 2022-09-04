@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* border: 2px solid red; */
   background-color: white;
   margin-top: 3rem;
   width: 100%;
@@ -11,7 +10,6 @@ export const Container = styled.div`
 `;
 
 export const Table = styled.table`
-  /* border: 2px solid greenyellow; */
   width: 100%;
   text-align: center;
   border-collapse: collapse;
@@ -44,11 +42,11 @@ export const SmallSpan = styled.span`
 
 export const BoldDiv = styled.div`
   font-weight: bold;
-  color: #483838;
+  color: ${props => props.theme.colors.brown};
 `;
 
 export const Button = styled.button`
-  background-color: #90b77d;
+  background-color: ${props => props.theme.colors.lightgreen};
   margin-top: 0.5rem;
   border-radius: 0.2rem;
   color: white;

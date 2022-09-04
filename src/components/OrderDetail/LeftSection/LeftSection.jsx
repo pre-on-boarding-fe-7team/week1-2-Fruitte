@@ -11,7 +11,6 @@ const LeftSection = () => {
 
 const Ul = styled.ul`
   flex: 1 1 14%;
-  /* border: 2px solid green; */
   padding: 1rem;
   list-style: none;
 `;
