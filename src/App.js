@@ -1,11 +1,15 @@
-import { Route, Routes } from 'react-router';
-import Registration from './components/Registration/Registration';
+import { Route, Routes } from 'react-router-dom';
+import Management from './components/Management/Management';
+import Header from './components/Header/Header';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/regist" element={<Registration />} />
-    </Routes>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/manage" element={<Management />} />
+      </Routes>
+    </>
   );
 }
 
