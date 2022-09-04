@@ -1,13 +1,13 @@
 import React from 'react';
-import LeftSection from '../LeftSection/LeftSection';
-import MyInfo from '../MyInfo/MyInfo';
-import OrderTable from '../OrderTable/OrderTable';
-import { Container, RightSection, H2 } from './OrderDetail.style';
+import LeftSection from './LeftSection/LeftSection';
+import MyInfo from './MyInfo/MyInfo';
+import OrderTable from './OrderTable/OrderTable';
+import { HeaderDiv, Section, Container, RightSection, H2 } from './OrderDetail.style';
 
 const OrderDetail = () => {
-  //스토어 상품 주문 내역확인 (주문 번호, 상품명, 주문 수량, 주문 옵션)
   return (
-    <>
+    <Section>
+      <HeaderDiv>header~~~</HeaderDiv>
       <Container>
         <LeftSection />
         <RightSection>
@@ -16,8 +16,8 @@ const OrderDetail = () => {
           <OrderTable />
         </RightSection>
       </Container>
-      <footer style={{ backgroundColor: '#D2D79F' }}>Footer---</footer>
-    </>
+      <HeaderDiv>footer~~~</HeaderDiv>
+    </Section>
   );
 };
 

@@ -1,12 +1,33 @@
 import styled from 'styled-components';
 
+export const HeaderDiv = styled.div`
+  background-color: orange;
+  width: 100%;
+  height: 100px;
+`;
+
+export const Section = styled.section`
+  background-color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  /* border: 2px solid skyblue; */
-  background-color: rgb(243, 243, 243);
+  border: 2px solid blue;
+  width: 100%;
+  max-width: ${props => props.theme.size.pc};
   padding: 60px 20px;
+
+  @media (max-width: ${props => props.theme.size.mobile}) {
+    & {
+      flex-direction: column;
+      padding: 0px;
+    }
+  }
 `;
 
 export const RightSection = styled.div`

@@ -12,15 +12,30 @@ export const Container = styled.div`
 
 export const Table = styled.table`
   /* border: 2px solid greenyellow; */
-  width: 90%;
+  width: 100%;
   text-align: center;
   border-collapse: collapse;
 `;
 
 export const Td = styled.td`
-  border-bottom: 1px solid #d2d79f;
-  padding: 1.2rem;
-  vertical-align: middle;
+  @media (min-width: ${props => props.theme.size.mobile}) {
+    & {
+      display: ${props => (props.mo ? 'none' : null)};
+      border-bottom: 1px solid ${props => props.theme.colors.yellowgreen};
+      padding: 1.2rem;
+      vertical-align: middle;
+      width: ${props => (props.title ? '300px' : '130px')};
+    }
+  }
+
+  @media (max-width: ${props => props.theme.size.mobile}) {
+    & {
+      display: ${props => (props.mo ? null : 'none')};
+      border-bottom: 1px solid ${props => props.theme.colors.yellowgreen};
+      padding: 1.2rem;
+      vertical-align: middle;
+    }
+  }
 `;
 
 export const SmallSpan = styled.span`
