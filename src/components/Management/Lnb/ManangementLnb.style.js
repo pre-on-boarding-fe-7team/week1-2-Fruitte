@@ -13,6 +13,6 @@ export const Li = styled.li`
   padding: 20px 0;
 
   span {
-    border-bottom: 2px solid green;
+    border-bottom: 2px solid #119411;
   }
 `;
