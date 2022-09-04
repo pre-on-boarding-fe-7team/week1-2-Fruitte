@@ -16,6 +16,11 @@ export const Headers = styled.header`
 
 export const Img = styled.img`
   width: 12rem;
+  @media (max-width: 900px) {
+    & {
+      width: 8rem;
+    }
+  }
 `;
 
 export const Ul = styled.ul`
@@ -33,12 +38,21 @@ export const Li = styled.li`
   align-items: center;
   height: 100%;
   list-style: none;
-  padding: 0 12px;
+  padding-right: 12px;
   color: rgba(0, 0, 0, 0.65);
 
+  &:last-child {
+    padding-right: 0;
+  }
   a {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.65);
+  }
+
+  @media (max-width: 900px) {
+    & {
+      font-size: 1rem;
+    }
   }
 `;
 
