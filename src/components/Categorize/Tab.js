@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { Nav } from 'react-bootstrap';
-import DetailInfo from '../components/detailInfo';
-import Review from './review';
-import Question from './question';
+import DetailInfo from '../Categorize/detailInfo';
+import Review from '../Categorize/review';
+import Question from '../Categorize/question';
 function Tab() {
   let [탭, 탭변경] = useState(0);
 

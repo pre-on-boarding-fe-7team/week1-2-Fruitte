@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Data from '../data/data.json';
 import styled from 'styled-components';
-import Tab from '../components/Tab';
+import Tab from '../components/Categorize/Tab';
 
 function ProductDetail() {
   let [items] = useState(Data.products);
@@ -35,10 +35,7 @@ function ProductDetail() {
 
   const [counter, setCounter] = useState(0);
   const [changecount, setchangecount] = useState([0, 0, 0]);
-  //   const [sum, setSum] = useState(0);
-  //   let counterSum = () => {
-  //     setSum(sum + prices);
-  //   };
+
   let increaseCount = idx => {
     let copy = [...changecount];
     copy[idx] = copy[idx] + 1;
