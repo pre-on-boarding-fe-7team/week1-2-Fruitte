@@ -18,8 +18,9 @@ const Container = styled.div`
   background-color: white;
   display: flex;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem;
   margin-bottom: 3rem;
+  width: 100%;
 `;
 const Info = styled.div`
   margin-left: 1rem;

@@ -16,13 +16,15 @@ const LeftSection = () => {
 };
 
 const Ul = styled.ul`
-  flex: 1 1 15%;
-  border: 2px solid green;
+  flex: 1 1 14%;
+  /* border: 2px solid green; */
   padding: 1rem;
   list-style: none;
 `;
 const Li = styled.li`
   margin-bottom: 0.5rem;
+  cursor: pointer;
+  /* color: ${props => props.theme.colors.green}; */
 `;
 
 export default LeftSection;
