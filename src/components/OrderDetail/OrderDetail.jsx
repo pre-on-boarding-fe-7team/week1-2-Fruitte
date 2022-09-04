@@ -8,7 +8,6 @@ const OrderDetail = () => {
   //스토어 상품 주문 내역확인 (주문 번호, 상품명, 주문 수량, 주문 옵션)
   return (
     <>
-      <header style={{ backgroundColor: '#D2D79F' }}>Header---</header>
       <Container>
         <LeftSection />
         <RightSection>
