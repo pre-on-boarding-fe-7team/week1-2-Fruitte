@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Management from './pages/Management/Management';
+import Management from './components/Management/Management';
 import Header from './components/Header/Header';
 
 function App() {
