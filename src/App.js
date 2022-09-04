@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { ROUTE } from './common/utils/constant';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import ProductsList from './components/ProductsList';
 import Management from './components/Management/Management';
 import OrderDetail from './components/OrderDetail/OrderDetail';
@@ -18,6 +19,7 @@ function App() {
         <Route path="/regist" element={<Registration />} />
         <Route path="/detail/:id" element={<ProductDetail />} />
       </Routes>
+      <Footer />
     </>
   );
 }
