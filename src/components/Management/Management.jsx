@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import ManagementProduct from '../../components/Management/ManagementProduct';
-import ManagementLnb from '../../components/Management/Lnb/ManagementLnb';
+import ManagementProduct from './ManagementProduct';
+import ManagementLnb from './Lnb/ManagementLnb';
 import { ManagementWrapper, Container, ProductList } from './Management.style';
 
 export default function Management() {
