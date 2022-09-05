@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { Nav } from 'react-bootstrap';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Nav } from 'react-bootstrap';
+
 import DetailInfo from '../Categorize/detailInfo';
-import Review from '../Categorize/review';
 import Question from '../Categorize/question';
+import Review from '../Categorize/review';
 function Tab() {
   let [탭, 탭변경] = useState(0);
 
