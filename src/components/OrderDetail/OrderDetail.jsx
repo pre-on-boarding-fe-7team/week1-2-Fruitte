@@ -1,6 +1,6 @@
 import React from 'react';
 import LeftSection from '../LeftSection/LeftSection';
-import MyInfo from '../MyInfo/MyInfo';
+import MyInfo from '../myInfo/MyInfo';
 import OrderTable from '../OrderTable/OrderTable';
 import { Container, RightSection, H2 } from './OrderDetail.style';
 
