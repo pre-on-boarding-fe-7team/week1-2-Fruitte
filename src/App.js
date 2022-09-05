@@ -20,8 +20,8 @@ function App() {
         <Route path={ROUTE.MY_PAGE} element={<OrderDetail />} />
         <Route path={ROUTE.MANAGE} element={<Management />} />
         <Route path={ROUTE.REGIST} element={<Registration />} />
-        <Route path={ROUTE.DETAIL} element={<ProductDetail />} />
-        <Route path={ROUTE.ORDER} element={<Order />} />
+        <Route path={ROUTE.DETAIL_ID} element={<ProductDetail />} />
+        <Route path={ROUTE.ORDER_ID} element={<Order />} />
         <Route path={ROUTE.NOT_FOUND} element={<NotFound />} />
       </Routes>
       <Footer />

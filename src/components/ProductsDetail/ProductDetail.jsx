@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { get } from '../../api/api';
+import { ROUTE } from '../../common/utils/constant';
 import Tab from '../Categorize/Tab';
-import { get } from '../../api/api';
 
 function ProductDetail() {
+  const navigate = useNavigate();
   let [items, setItems] = useState([]);
   let { id } = useParams();
 
@@ -37,11 +38,15 @@ function ProductDetail() {
       }
     });
 
-
-    let price = items[id].salesList.reduce((accu, cart) => accu + cart.price * 1, 0);
+    let price = items[id]?.salesList.reduce((accu, cart) => accu + cart.price * 1, 0);
 
     setOption([..._options, { text: e.target.value, sum: price }]);
     setSum(price);
+  };
+
+  const handleBuy = () => {
+    if (options.length === 0) return;
+    navigate(`${ROUTE.ORDER}/${id}`);
   };
 
   const [counter, setCounter] = useState(0);
@@ -75,28 +80,20 @@ function ProductDetail() {
     </option>
   ));
 
-  const getData = async () => {
-    const res = await get();
-    setItems(res.products);
-  };
-  useEffect(() => {
-    getData();
-  }, []);
-
   return (
     <Wrapper>
       <div>
         <RightSide>
           <div>
-            <Img src={items[id].url} />
+            <Img src={items[id]?.url} />
           </div>
           <Right>
-            <Title>{items[id].name}</Title>
+            <Title>{items[id]?.name}</Title>
             <SaleBtn>SALE</SaleBtn>
             <BestBtn>BEST</BestBtn>
             <Middle>
-              <Price>{items[id].price}원</Price>
-              <SalePrice>{items[id].salePrice}원</SalePrice>
+              <Price>{items[id]?.salePrice}원</Price>
+              <SalePrice>{items[id]?.price}원</SalePrice>
             </Middle>
             <hr />
             <p>미생물을 이용한 친환경 농볍으로 걸러 더욱 맛있는 국내산 친환경 생 아스파라거스</p>
@@ -126,10 +123,10 @@ function ProductDetail() {
               >
                 <path
                   fill="none"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   stroke="#A1A1A1"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M6.045 3.955L10.136 8.052 6.045 12.136"
                   transform="rotate(90 7.91 8.045)"
                 />
@@ -150,10 +147,10 @@ function ProductDetail() {
               >
                 <path
                   fill="none"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   stroke="#A1A1A1"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M6.045 3.955L10.136 8.052 6.045 12.136"
                   transform="rotate(90 7.91 8.045)"
                 />
@@ -163,7 +160,7 @@ function ProductDetail() {
               {options &&
                 options.map((option, idx) => {
                   return (
-                    <BoxItem>
+                    <BoxItem key={idx}>
                       <Items>
                         <TextItem>
                           <p>{option.text}</p>
@@ -198,7 +195,7 @@ function ProductDetail() {
                 {sum * (changecount[0] + changecount[1] + changecount[2])} 원
               </TotalSum>
               <BtnState>
-                <BuyBtn>구매하기</BuyBtn>
+                <BuyBtn onClick={handleBuy}>구매하기</BuyBtn>
                 <CartBtn>장바구니</CartBtn>
                 <HartBtn>♡</HartBtn>
               </BtnState>

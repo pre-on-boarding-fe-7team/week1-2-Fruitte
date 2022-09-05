@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button } from './Pagination.style';
+import { Button, Container } from './Pagination.style';
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 
 function Pagination({ totalPage, page, handleSetPage }) {
   return (
-    <>
+    <Container>
       <Button onClick={() => handleSetPage(page - 1)} disabled={page === 1}>
-        왼쪽
+        <AiOutlineArrowLeft />
       </Button>
       {Array(totalPage)
         .fill()
@@ -15,9 +16,9 @@ function Pagination({ totalPage, page, handleSetPage }) {
           </Button>
         ))}
       <Button onClick={() => handleSetPage(page + 1)} disabled={page === totalPage}>
-        오른쪽
+        <AiOutlineArrowRight />
       </Button>
-    </>
+    </Container>
   );
 }
 

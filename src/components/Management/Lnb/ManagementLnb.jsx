@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+import { ROUTE } from '../../../common/utils/constant';
 import { Ul, Li } from './ManangementLnb.style';
 
 export default function ManagementLnb() {
@@ -9,7 +10,7 @@ export default function ManagementLnb() {
         <span>상품 목록 관리</span>
       </Li>
       <Li className="button">
-        <Link to="/regist">등록하기</Link>
+        <Link to={ROUTE.REGIST}>등록하기</Link>
       </Li>
     </Ul>
   );

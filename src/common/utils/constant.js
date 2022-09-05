@@ -3,7 +3,11 @@ export const ROUTE = {
   MY_PAGE: '/mypage',
   MANAGE: '/manage',
   REGIST: '/regist',
-  DETAIL: '/detail/:id',
-  ORDER: '/order/:id',
+  DETAIL: '/detail',
+  DETAIL_ID: '/detail/:id',
+  ORDER: '/order',
+  ORDER_ID: '/order/:id',
   NOT_FOUND: '*',
 };
+
+export const PAGINATION_LIMIT = 10;
