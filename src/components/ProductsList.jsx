@@ -21,10 +21,15 @@ import {
   DescriptionContainer,
   Heart,
   Detail,
+  StyledHeart,
+  Likes,
+  TotalCount,
+  Total,
 } from './ProductList.style';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 
 function ProductsList() {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const offest = (page - 1) * PAGINATION_LIMIT;
@@ -46,15 +51,19 @@ function ProductsList() {
   }, []);
   return (
     <Container>
+      <Total>
+        FRUITTE STORE <TotalCount>{products?.length}</TotalCount>
+      </Total>
       <Ol>
         {products?.slice(offest, offest + PAGINATION_LIMIT).map((product, index) => (
-          <Li key={product.id}>
+          <Li key={product.id} onClick={() => navigate(`/detail/${product.id - 1}`)}>
             <ImgWrapper>
               <Img src={product.url} alt="이미지입니다." />
               <DescriptionContainer>
                 <Detail>원산지: {product.from}</Detail>
                 <Heart>
-                  <AiOutlineHeart />
+                  <StyledHeart />
+                  <Likes>{product.likes}</Likes>
                 </Heart>
               </DescriptionContainer>
             </ImgWrapper>
