@@ -20,7 +20,7 @@ const Li = styled.li`
   margin-bottom: 0.5rem;
   cursor: pointer;
   span {
-    border-bottom: 2px solid green;
+    border-bottom: 2px solid ${props => props.theme.colors.lightgreen};
   }
 `;
 

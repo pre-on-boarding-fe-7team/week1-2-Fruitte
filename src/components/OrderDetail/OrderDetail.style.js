@@ -1,16 +1,11 @@
 import styled from 'styled-components';
 
-export const HeaderDiv = styled.div`
-  background-color: orange;
-  width: 100%;
-  height: 100px;
-`;
-
 export const Section = styled.section`
   background-color: #f3f3f3;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 90px;
 `;
 
 export const Container = styled.div`
