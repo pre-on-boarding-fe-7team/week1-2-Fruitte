@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { PAGINATION_LIMIT } from '../common/utils/constant';
+import { PAGINATION_LIMIT, ROUTE } from '../common/utils/constant';
 import { get } from '../api/api';
 import Pagination from './pagination/Pagination';
 import {
@@ -56,7 +56,7 @@ function ProductsList() {
       </Total>
       <Ol>
         {products?.slice(offest, offest + PAGINATION_LIMIT).map((product, index) => (
-          <Li key={product.id} onClick={() => navigate(`/detail/${product.id - 1}`)}>
+          <Li key={product.id} onClick={() => navigate(`${ROUTE.DETAIL}/${product.id - 1}`)}>
             <ImgWrapper>
               <Img src={product.url} alt="이미지입니다." />
               <DescriptionContainer>

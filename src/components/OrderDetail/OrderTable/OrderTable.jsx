@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { get } from '../../../api/api';
+import { ROUTE } from '../../../common/utils/constant';
 import { Container, Table, Td, SmallSpan, BoldDiv, Button } from './OrderTable.style';
 
 const OrderTable = () => {
@@ -17,7 +18,7 @@ const OrderTable = () => {
   }, []);
 
   const onClick = id => {
-    navigate(`/detail/${id}`);
+    navigate(`/${ROUTE.DETAIL}/${id}`);
   };
 
   return (
