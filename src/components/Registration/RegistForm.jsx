@@ -1,8 +1,21 @@
+import {
+  Button,
+  Buttons,
+  Cancel,
+  Confirm,
+  Container,
+  Error,
+  Form,
+  Input,
+  Label,
+  Span,
+  Textarea,
+  Title,
+} from './RegistForm.style';
 import { useCallback, useEffect, useState } from 'react';
 import { MdAddCircle } from 'react-icons/md';
-import Container from './Container';
-import { Button, Cancel, Confirm, Error, Form, Input, Label, Textarea } from './RegistForm.style';
 import SalesList from './SalesList';
+import { useNavigate } from 'react-router-dom';
 
 const initSalesList = [{ index: 1, title: '', price: 0, quantity: 0 }];
 
@@ -21,6 +34,7 @@ const RegistForm = () => {
   const [errors, setErrors] = useState({});
   const [salesList, setSalesList] = useState(initSalesList);
   const [images, setImages] = useState([]);
+  const navigate = useNavigate();
 
   const changeHandler = ({ target: { name, value } }) => {
     setInfo(state => ({ ...state, [name]: value }));
@@ -74,8 +88,28 @@ const RegistForm = () => {
   const submitHandler = e => {
     e.preventDefault();
 
-    //TEST CODE
-    alert(JSON.stringify({ ...info, salesList, images }));
+    const vList = [
+      { name: 'name', value: info.name, options: ['REQUIRED'] },
+      { name: 'price', value: info.price, options: ['REQUIRED'] },
+      { name: 'salePrice', value: info.salePrice, options: ['REQUIRED'] },
+      { name: 'images', value: images.length, options: ['IMAGES'] },
+      { name: 'salesList', value: salesList.length, options: ['SALES'] },
+    ];
+    const isValid =
+      vList
+        .map(({ name, value, options }) => validateField(name, value, options))
+        .findIndex(p => !p) === -1;
+
+    if (!isValid) return;
+
+    alert('RESULT: ' + JSON.stringify({ ...info, salesList, images }));
+
+    // fetch(`http://localhost:8000/regist`, {
+    //   method: 'POST',
+    //   body: JSON.stringify({ ...info, salesList, images }),
+    // }).then(res => {
+    navigate('/', { replace: true });
+    // });
   };
 
   const blurHandler =
@@ -103,9 +137,13 @@ const RegistForm = () => {
         case 'IMAGES':
           message = value > 0 ? null : '이미지는 1개 이상 첨부해야 합니다.';
           break;
+        default:
+          message = '';
+          break;
       }
 
       if (message) return true;
+      return false;
     });
 
     const error = message ? { [name]: message } : null;
@@ -117,6 +155,12 @@ const RegistForm = () => {
         return temp;
       }
     });
+
+    return !message ? true : false;
+  };
+
+  const cancelHandler = () => {
+    navigate(-1);
   };
 
   useEffect(() => {
@@ -125,12 +169,12 @@ const RegistForm = () => {
 
   return (
     <Form onSubmit={submitHandler}>
+      <Title>상품등록</Title>
       <Container>
         <Label>상품명</Label>
         <Input
           type="text"
           name="name"
-          autoFocus
           onChange={changeHandler}
           onBlur={blurHandler(['REQUIRED'])}
         />
@@ -166,19 +210,19 @@ const RegistForm = () => {
 
       <Container>
         <Label>
-          MD
+          <Span>MD</Span>
           <Input type="checkbox" name="isMd" onChange={checkHandler} />
         </Label>
 
         <Label>
-          BEST
+          <Span>BEST</Span>
           <Input type="checkbox" name="isBest" onChange={checkHandler} />
         </Label>
       </Container>
 
       <Container>
         <Label>상세정보</Label>
-        <Textarea name="detail" rows="10" style={{ resize: 'none' }} onChange={changeHandler} />
+        <Textarea name="detail" rows="4" style={{ resize: 'none' }} onChange={changeHandler} />
       </Container>
 
       <Container>
@@ -194,19 +238,21 @@ const RegistForm = () => {
             <MdAddCircle size="20" color="#42855B" />
           </Button>
         </Label>
+        {<Error>{errors.salesList}</Error> || null}
 
         <SalesList
           list={salesList}
           changeHandler={changeSalesHandler}
           deleteHandler={deleteSalesHandler}
         />
-        {<Error>{errors.salesList}</Error> || null}
       </Container>
 
-      <Confirm type="submit" disabled={Object.keys(errors).length === 0 ? true : false}>
-        등록
-      </Confirm>
-      <Cancel type="button">취소</Cancel>
+      <Buttons>
+        <Confirm type="submit">등록</Confirm>
+        <Cancel type="button" onClick={cancelHandler}>
+          취소
+        </Cancel>
+      </Buttons>
     </Form>
   );
 };
