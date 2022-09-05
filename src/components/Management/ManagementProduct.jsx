@@ -17,7 +17,7 @@ export default function ManagementProduct({ id, name, images, date, show, produc
   const [updateShow, setUpdateShow] = useState(show);
 
   const handleImage = () => {
-    const image = images[0].url;
+    const image = images;
     return image;
   };
 
