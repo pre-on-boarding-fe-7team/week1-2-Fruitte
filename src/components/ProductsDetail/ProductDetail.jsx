@@ -36,7 +36,7 @@ function ProductDetail() {
       }
     });
 
-    let price = items[id].salesList.reduce((accu, cart) => accu + cart.price * 1, 0);
+    let price = items[id]?.salesList.reduce((accu, cart) => accu + cart.price * 1, 0);
 
     setOption([..._options, { text: e.target.value, sum: price }]);
     setSum(price);
@@ -64,7 +64,7 @@ function ProductDetail() {
     copy.splice(i, 1);
     setOption(copy);
   };
-  let selected = items[id].salesList.map(option => (
+  let selected = items[id]?.salesList.map(option => (
     <option key={option.value} value={option.title} defaultValue={option.title}>
       <div>
         <div> {option.title} </div>
@@ -78,15 +78,15 @@ function ProductDetail() {
       <div>
         <RightSide>
           <div>
-            <Img src={items[id].url} />
+            <Img src={items[id]?.url} />
           </div>
           <Right>
-            <Title>{items[id].name}</Title>
+            <Title>{items[id]?.name}</Title>
             <SaleBtn>SALE</SaleBtn>
             <BestBtn>BEST</BestBtn>
             <Middle>
-              <Price>{items[id].price}원</Price>
-              <SalePrice>{items[id].salePrice}원</SalePrice>
+              <Price>{items[id]?.price}원</Price>
+              <SalePrice>{items[id]?.salePrice}원</SalePrice>
             </Middle>
             <hr />
             <p>미생물을 이용한 친환경 농볍으로 걸러 더욱 맛있는 국내산 친환경 생 아스파라거스</p>
@@ -116,10 +116,10 @@ function ProductDetail() {
               >
                 <path
                   fill="none"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   stroke="#A1A1A1"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M6.045 3.955L10.136 8.052 6.045 12.136"
                   transform="rotate(90 7.91 8.045)"
                 />
@@ -140,10 +140,10 @@ function ProductDetail() {
               >
                 <path
                   fill="none"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   stroke="#A1A1A1"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M6.045 3.955L10.136 8.052 6.045 12.136"
                   transform="rotate(90 7.91 8.045)"
                 />
@@ -153,7 +153,7 @@ function ProductDetail() {
               {options &&
                 options.map((option, idx) => {
                   return (
-                    <BoxItem>
+                    <BoxItem key={idx}>
                       <Items>
                         <TextItem>
                           <p>{option.text}</p>
