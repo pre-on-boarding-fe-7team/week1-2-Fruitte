@@ -7,6 +7,7 @@ import Management from './components/Management/Management';
 import OrderDetail from './components/OrderDetail/OrderDetail';
 import Registration from './components/Registration/Registration';
 import ProductDetail from './components/ProductsDetail/ProductDetail';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
@@ -14,10 +15,11 @@ function App() {
       <Header />
       <Routes>
         <Route path={ROUTE.MAIN} element={<ProductsList />} />
-        <Route path="/mypage" element={<OrderDetail />} />
-        <Route path="/manage" element={<Management />} />
-        <Route path="/regist" element={<Registration />} />
-        <Route path="/detail/:id" element={<ProductDetail />} />
+        <Route path={ROUTE.MY_PAGE} element={<OrderDetail />} />
+        <Route path={ROUTE.MANAGE} element={<Management />} />
+        <Route path={ROUTE.REGIST} element={<Registration />} />
+        <Route path={ROUTE.DETAIL} element={<ProductDetail />} />
+        <Route path={ROUTE.NOT_FOUND} element={<NotFound />} />
       </Routes>
       <Footer />
     </>
