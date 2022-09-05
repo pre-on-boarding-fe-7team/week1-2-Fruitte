@@ -4,7 +4,18 @@ import { AiFillHeart } from 'react-icons/ai';
 export const Container = styled.section`
   max-width: 1100px;
   height: 600px;
-  margin: 0 auto;
+  margin: 2rem auto;
+`;
+
+export const Total = styled.p`
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  color: #483838;
+`;
+
+export const TotalCount = styled.span`
+  font-size: 1.2rem;
+  color: #42855b;
 `;
 
 export const Ol = styled.ol`
