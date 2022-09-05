@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import useInput from '../../hooks/useInput';
-import useInputs from '../../hooks/useInputs';
-import Data from '../../data/data.json';
 import {
   DeliveryData,
   Font,
@@ -21,10 +18,15 @@ import {
   Select,
   UserData,
 } from './Order.style';
+import { get } from '../../api/api';
+import useInput from '../../hooks/useInput';
+import useInputs from '../../hooks/useInputs';
 
 const OrderForm = () => {
-  let [items] = useState(Data.products);
-  let { id } = useParams();
+  const [products, setProducts] = useState([]);
+  const { id } = useParams();
+  const index = Number(id) - 1;
+  const navigate = useNavigate();
 
   const OPTIONS = [
     { value: '', name: '배송 메모를 선택해주세요.' },
@@ -34,7 +36,15 @@ const OrderForm = () => {
     { value: '부재시 문 앞에 놔주세요.', name: '부재시 문 앞에 놔주세요.' },
   ];
 
-  const navigate = useNavigate();
+  const getData = async () => {
+    const res = await get();
+    setProducts(res.products);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   const [orderData, onChangeOrderData] = useInputs({
     orderName: '',
     phoneNumber: '',
@@ -44,6 +54,7 @@ const OrderForm = () => {
     adress: '',
     adressDetail: '',
   });
+  const [userSameCheck, onChangeSameCheck] = useInput(false);
   const [paymentMethod, onChangePaymentMethod] = useInput(false);
 
   const {
@@ -57,6 +68,7 @@ const OrderForm = () => {
     selet,
   } = orderData;
 
+  //유효성 check
   const NameValid = orderName.length >= 1 && receiverName.length >= 1;
   const phoneNumberValid = phoneNumber.length >= 5 && receiverPhone.length >= 5;
   const EmailValid = Email.includes('@') && Email.length >= 5;
@@ -77,6 +89,7 @@ const OrderForm = () => {
       alert('결제 수단을 선택해주세요.');
     }
   };
+
   return (
     <Form onSubmit={handlerOnSubmit}>
       <OrderFormContainer>
@@ -87,12 +100,12 @@ const OrderForm = () => {
             </Font>
             <div className="productContainer">
               <div className="imgDataWrap">
-                <Img src={items[id].url} alt="상품 이미지" />
+                <Img src={products[index].url} alt="상품 이미지" />
                 <div>
-                  <Font>{items[id].name}</Font>
-                  <Font size="small">{items[id].salesList[0].title}</Font>
+                  <Font>{products[index].name}</Font>
+                  <Font size="small">{products[index].salesList[0].title}</Font>
                   <Font size="medium" weight="bold">
-                    {items[id].price}원
+                    {products[index].price}원
                   </Font>
                 </div>
               </div>
@@ -137,7 +150,12 @@ const OrderForm = () => {
               배송 정보
             </Font>
             <p>
-              <InputCheck type="checkbox" id="userSameCheck" />
+              <InputCheck
+                type="checkbox"
+                id="userSameCheck"
+                checked={userSameCheck === true}
+                onChange={onChangeSameCheck}
+              />
               <label id="userSameCheck" htmlFor="userSameCheck"></label>
               <span>주문자 정보와 동일</span>
             </p>
@@ -147,14 +165,14 @@ const OrderForm = () => {
                   type="text"
                   name="receiverName"
                   placeholder="수령인"
-                  value={receiverName}
+                  value={userSameCheck ? orderName : receiverName}
                   onChange={onChangeOrderData}
                 />
                 <Input
                   type="text"
                   name="receiverPhone"
                   placeholder="연락처"
-                  value={receiverPhone}
+                  value={userSameCheck ? phoneNumber : receiverPhone}
                   onChange={onChangeOrderData}
                 />
               </div>
@@ -200,7 +218,7 @@ const OrderForm = () => {
             <div className="pricesWrap">
               <div>
                 <Font size="medium">상품 가격</Font>
-                <Font size="medium">{items[id].price}원</Font>
+                <Font size="medium">{products[index].price}원</Font>
               </div>
               <div>
                 <Font size="medium">배송비</Font>
@@ -212,7 +230,7 @@ const OrderForm = () => {
                 총 주문금액
               </Font>
               <Font weight="bold" color="#D2D79F">
-                {Number(items[id].price) + 3500}원
+                {Number(products[index].price) + 3500}원
               </Font>
             </div>
           </PriceData>

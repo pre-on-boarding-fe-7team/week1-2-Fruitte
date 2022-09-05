@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Data from '../../data/data.json';
 import styled from 'styled-components';
 import Tab from '../Categorize/Tab';
+import { get } from '../../api/api';
 
 function ProductDetail() {
-  let [items] = useState(Data.products);
+  let [items, setItems] = useState([]);
   let { id } = useParams();
 
   const OPTIONS = [
@@ -27,7 +27,7 @@ function ProductDetail() {
         alert('이미 선택된 옵션입니다');
       }
     });
-    let price = items[id].salesList.map(option => <div>{option.price}</div>);
+    let price = items[id]?.salesList.map(option => <div>{option.price}</div>);
 
     setOption([..._options, { text: e.target.value, sum: price[1] }]);
     setSum(sum + options.price);
@@ -55,7 +55,7 @@ function ProductDetail() {
     copy.splice(i, 1);
     setOption(copy);
   };
-  let selected = items[id].salesList.map(option => (
+  let selected = items[id]?.salesList.map(option => (
     <option key={option.value} value={option.title} defaultValue={option.title}>
       <div>
         <div> {option.title} </div>
@@ -64,10 +64,18 @@ function ProductDetail() {
     </option>
   ));
 
+  const getData = async () => {
+    const res = await get();
+    setItems(res.products);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <Wrapper>
-      <img src={items[id].url} />
-      <p>{items[id].name}</p>
+      <img src={items[id]?.url} alt="img" />
+      <p>{items[id]?.name}</p>
       <SelectBoxWrapper>
         <Select onChange={배송}>
           {OPTIONS.map(option => (
@@ -79,10 +87,10 @@ function ProductDetail() {
         <IconSVG xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
           <path
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
             stroke="#A1A1A1"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M6.045 3.955L10.136 8.052 6.045 12.136"
             transform="rotate(90 7.91 8.045)"
           />
@@ -98,10 +106,10 @@ function ProductDetail() {
         <IconSVG xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
           <path
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
             stroke="#A1A1A1"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M6.045 3.955L10.136 8.052 6.045 12.136"
             transform="rotate(90 7.91 8.045)"
           />
@@ -188,6 +196,9 @@ export const Select = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  &:focus {
+    border-color: red;
+  }
 `;
 
 const IconSVG = styled.svg`
