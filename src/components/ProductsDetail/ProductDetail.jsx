@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { get } from '../../api/api';
 import Tab from '../Categorize/Tab';
 import { get } from '../../api/api';
 
@@ -36,6 +37,7 @@ function ProductDetail() {
       }
     });
 
+
     let price = items[id].salesList.reduce((accu, cart) => accu + cart.price * 1, 0);
 
     setOption([..._options, { text: e.target.value, sum: price }]);
@@ -64,7 +66,7 @@ function ProductDetail() {
     copy.splice(i, 1);
     setOption(copy);
   };
-  let selected = items[id].salesList.map(option => (
+  let selected = items[id]?.salesList.map(option => (
     <option key={option.value} value={option.title} defaultValue={option.title}>
       <div>
         <div> {option.title} </div>
@@ -72,6 +74,14 @@ function ProductDetail() {
       </div>
     </option>
   ));
+
+  const getData = async () => {
+    const res = await get();
+    setItems(res.products);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <Wrapper>

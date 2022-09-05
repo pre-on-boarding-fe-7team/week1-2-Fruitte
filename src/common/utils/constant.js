@@ -4,5 +4,6 @@ export const ROUTE = {
   MANAGE: '/manage',
   REGIST: '/regist',
   DETAIL: '/detail/:id',
+  ORDER: '/order/:id',
   NOT_FOUND: '*',
 };
