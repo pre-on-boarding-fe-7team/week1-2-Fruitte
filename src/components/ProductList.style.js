@@ -39,6 +39,7 @@ export const InfoContainer = styled.section`
 `;
 
 export const Title = styled.h1`
+  line-height: 1.3rem;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
