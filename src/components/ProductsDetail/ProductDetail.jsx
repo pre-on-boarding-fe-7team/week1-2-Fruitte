@@ -44,6 +44,11 @@ function ProductDetail() {
     setSum(price);
   };
 
+  const handleBuy = () => {
+    if (options.length === 0) return;
+    navigate(`${ROUTE.ORDER}/${id}`);
+  };
+
   const [counter, setCounter] = useState(0);
   const [changecount, setchangecount] = useState([1, 1, 1]);
 
@@ -87,8 +92,8 @@ function ProductDetail() {
             <SaleBtn>SALE</SaleBtn>
             <BestBtn>BEST</BestBtn>
             <Middle>
-              <Price>{items[id]?.price}원</Price>
-              <SalePrice>{items[id]?.salePrice}원</SalePrice>
+              <Price>{items[id]?.salePrice}원</Price>
+              <SalePrice>{items[id]?.price}원</SalePrice>
             </Middle>
             <hr />
             <p>미생물을 이용한 친환경 농볍으로 걸러 더욱 맛있는 국내산 친환경 생 아스파라거스</p>
@@ -190,7 +195,7 @@ function ProductDetail() {
                 {sum * (changecount[0] + changecount[1] + changecount[2])} 원
               </TotalSum>
               <BtnState>
-                <BuyBtn onClick={() => navigate(`${ROUTE.ORDER}/${id}`)}>구매하기</BuyBtn>
+                <BuyBtn onClick={handleBuy}>구매하기</BuyBtn>
                 <CartBtn>장바구니</CartBtn>
                 <HartBtn>♡</HartBtn>
               </BtnState>
