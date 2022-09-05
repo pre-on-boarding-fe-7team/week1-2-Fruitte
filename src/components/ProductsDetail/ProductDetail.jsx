@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+
 import { get } from '../../api/api';
 import { ROUTE } from '../../common/utils/constant';
 import Tab from '../Categorize/Tab';

@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+
+import { get } from '../../api/api';
+import { ROUTE } from '../../common/utils/constant';
+import useInput from '../../hooks/useInput';
+import useInputs from '../../hooks/useInputs';
 import {
   DeliveryData,
   Font,
@@ -18,10 +23,6 @@ import {
   Select,
   UserData,
 } from './Order.style';
-import { get } from '../../api/api';
-import useInput from '../../hooks/useInput';
-import useInputs from '../../hooks/useInputs';
-import { ROUTE } from '../../common/utils/constant';
 
 const OrderForm = () => {
   const [products, setProducts] = useState([]);

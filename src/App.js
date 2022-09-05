@@ -5,9 +5,9 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Management from './components/Management/Management';
 import NotFound from './components/NotFound/NotFound';
+import Order from './components/Order/Order';
 import OrderDetail from './components/OrderDetail/OrderDetail';
 import ProductDetail from './components/ProductsDetail/ProductDetail';
-import Order from './components/Order/Order';
 import ProductsList from './components/ProductsList';
 import Registration from './components/Registration/Registration';
 

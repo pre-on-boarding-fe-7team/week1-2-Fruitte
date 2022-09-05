@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { PAGINATION_LIMIT, ROUTE } from '../common/utils/constant';
+import { useNavigate } from 'react-router-dom';
+
 import { get } from '../api/api';
+import { PAGINATION_LIMIT, ROUTE } from '../common/utils/constant';
 import Pagination from './pagination/Pagination';
 import {
   IconContainer,
@@ -26,7 +28,6 @@ import {
   TotalCount,
   Total,
 } from './ProductList.style';
-import { useNavigate } from 'react-router-dom';
 
 function ProductsList() {
   const navigate = useNavigate();

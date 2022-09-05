@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { AiFillHeart } from 'react-icons/ai';
+import styled from 'styled-components';
 
 export const Container = styled.section`
   max-width: 1100px;

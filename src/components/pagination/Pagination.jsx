@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, Container } from './Pagination.style';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
+
+import { Button, Container } from './Pagination.style';
 
 function Pagination({ totalPage, page, handleSetPage }) {
   return (
