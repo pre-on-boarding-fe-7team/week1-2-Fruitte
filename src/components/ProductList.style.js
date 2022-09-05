@@ -3,7 +3,6 @@ import { AiFillHeart } from 'react-icons/ai';
 
 export const Container = styled.section`
   max-width: 1100px;
-  height: 600px;
   margin: 2rem auto;
 `;
 

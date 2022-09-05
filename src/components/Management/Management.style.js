@@ -7,7 +7,6 @@ export const ManagementWrapper = styled.div`
   width: 100%;
   min-height: calc(100vh - 90px);
   background: #f3f3f3;
-  margin-top: 90px;
   padding: 60px 20px;
 
   @media (max-width: 768px) {
