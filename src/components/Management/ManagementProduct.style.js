@@ -5,7 +5,7 @@ export const Li = styled.li`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid ${props => props.theme.colors.green};
   padding: 9px 4px;
 
   &:last-child {
@@ -30,11 +30,16 @@ export const DateSpan = styled.span`
   position: absolute;
   top: -0.2rem;
   font-size: 0.8rem;
-  color: #90b77d;
+  color: ${props => props.theme.colors.lightgreen};
 `;
 
 export const Span = styled.span`
+  color: #404040;
   margin-top: 0.6rem;
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+  }
 `;
 
 export const Button = styled.button`
@@ -47,10 +52,10 @@ export const Button = styled.button`
   padding: 0;
   margin: 0;
   background: none;
-  border: 1px solid #42855b;
+  border: 1px solid ${props => props.theme.colors.green};
   border-radius: 4px;
   font-size: 18px;
-  color: #42855b;
+  color: ${props => props.theme.colors.green};
   cursor: pointer;
 
   & + button {
@@ -59,8 +64,8 @@ export const Button = styled.button`
 `;
 
 export const DeleteButton = styled(Button)`
-  border-color: #483838;
-  color: #483838;
+  border-color: ${props => props.theme.colors.brown};
+  color: ${props => props.theme.colors.brown};
 `;
 
 export const SpanLeftWrap = styled.span`
