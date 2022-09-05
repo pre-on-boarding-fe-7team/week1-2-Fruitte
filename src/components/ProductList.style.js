@@ -1,9 +1,20 @@
 import styled from 'styled-components';
+import { AiFillHeart } from 'react-icons/ai';
 
 export const Container = styled.section`
   max-width: 1100px;
-  height: 600px;
-  margin: 0 auto;
+  margin: 2rem auto;
+`;
+
+export const Total = styled.p`
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  color: #483838;
+`;
+
+export const TotalCount = styled.span`
+  font-size: 1.2rem;
+  color: #42855b;
 `;
 
 export const Ol = styled.ol`
@@ -27,12 +38,20 @@ export const InfoContainer = styled.section`
   gap: 0.5rem;
 `;
 
-export const Title = styled.h1``;
+export const Title = styled.h1`
+  line-height: 1.3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+`;
 
 export const DescriptionContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -53,10 +72,38 @@ export const ImgWrapper = styled.div`
 
   &:hover {
     ${DescriptionContainer} {
-      opacity: 0.6;
+      opacity: 0.7;
       transform: translateY(0px);
     }
   }
+`;
+export const Detail = styled.div`
+  flex: 0.5;
+  display: flex;
+  align-items: flex-end;
+`;
+export const Heart = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0.5;
+  width: 100%;
+  font-size: 2rem;
+  position: relative;
+  bottom: 0;
+`;
+
+export const StyledHeart = styled(AiFillHeart)`
+  transition: all 0.2s ease-in;
+  color: red;
+  margin-right: 0.5rem;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
+export const Likes = styled.span`
+  font-size: 1.5rem;
 `;
 
 export const Img = styled.img`

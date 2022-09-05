@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const DummyHeaders = styled.header`
+  display: block;
+  width: 100%;
+  height: 90px;
+`;
+
 export const Headers = styled.header`
   position: relative;
   display: flex;

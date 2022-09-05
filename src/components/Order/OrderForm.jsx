@@ -21,11 +21,11 @@ import {
 import { get } from '../../api/api';
 import useInput from '../../hooks/useInput';
 import useInputs from '../../hooks/useInputs';
+import { ROUTE } from '../../common/utils/constant';
 
 const OrderForm = () => {
   const [products, setProducts] = useState([]);
   const { id } = useParams();
-  const index = Number(id) - 1;
   const navigate = useNavigate();
 
   const OPTIONS = [
@@ -78,7 +78,7 @@ const OrderForm = () => {
     e.preventDefault();
     if (NameValid && phoneNumberValid && EmailValid && adressValid && paymentMethod) {
       alert('결제 완료');
-      navigate('/');
+      navigate(ROUTE.MAIN);
     } else if (!NameValid) {
       alert('한 글자 이상 이름을 입력해주세요.');
     } else if (!phoneNumberValid) {
@@ -100,12 +100,12 @@ const OrderForm = () => {
             </Font>
             <div className="productContainer">
               <div className="imgDataWrap">
-                <Img src={products[index].url} alt="상품 이미지" />
+                <Img src={products[id]?.url} alt="상품 이미지" />
                 <div>
-                  <Font>{products[index].name}</Font>
-                  <Font size="small">{products[index].salesList[0].title}</Font>
+                  <Font>{products[id]?.name}</Font>
+                  <Font size="small">{products[id]?.salesList[0].title}</Font>
                   <Font size="medium" weight="bold">
-                    {products[index].price}원
+                    {products[id]?.price}원
                   </Font>
                 </div>
               </div>
@@ -218,7 +218,7 @@ const OrderForm = () => {
             <div className="pricesWrap">
               <div>
                 <Font size="medium">상품 가격</Font>
-                <Font size="medium">{products[index].price}원</Font>
+                <Font size="medium">{products[id]?.price}원</Font>
               </div>
               <div>
                 <Font size="medium">배송비</Font>
@@ -230,7 +230,7 @@ const OrderForm = () => {
                 총 주문금액
               </Font>
               <Font weight="bold" color="#D2D79F">
-                {Number(products[index].price) + 3500}원
+                {Number(products[id]?.price) + 3500}원
               </Font>
             </div>
           </PriceData>
