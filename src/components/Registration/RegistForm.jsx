@@ -1,6 +1,3 @@
-import { useCallback, useEffect, useState } from 'react';
-import { MdAddCircle } from 'react-icons/md';
-import { useNavigate } from 'react-router-dom';
 import {
   Button,
   Buttons,
@@ -15,7 +12,10 @@ import {
   Textarea,
   Title,
 } from './RegistForm.style';
+import { useCallback, useEffect, useState } from 'react';
+import { MdAddCircle } from 'react-icons/md';
 import SalesList from './SalesList';
+import { useNavigate } from 'react-router-dom';
 
 const initSalesList = [{ index: 1, title: '', price: 0, quantity: 0 }];
 
@@ -137,9 +137,13 @@ const RegistForm = () => {
         case 'IMAGES':
           message = value > 0 ? null : '이미지는 1개 이상 첨부해야 합니다.';
           break;
+        default:
+          message = '';
+          break;
       }
 
       if (message) return true;
+      return false;
     });
 
     const error = message ? { [name]: message } : null;
