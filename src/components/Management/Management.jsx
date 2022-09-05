@@ -1,28 +1,21 @@
 import { useState, useEffect } from 'react';
+import { get } from '../../api/api';
 import ManagementProduct from './ManagementProduct';
 import ManagementLnb from './Lnb/ManagementLnb';
 import { ManagementWrapper, Container, ProductList } from './Management.style';
 
 export default function Management() {
   const [manageList, setManageList] = useState([]);
-  const [isUpdated, setIsUpdated] = useState(false);
+  const getProductsList = async () => {
+    const res = await get();
+    setManageList(res.products);
+  };
   useEffect(() => {
-    setIsUpdated(false);
-    fetch('http://localhost:8000/products/', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        setManageList(data);
-      });
-  }, [isUpdated]);
+    getProductsList();
+  }, []);
 
   const handleDelete = id => {
-    fetch(`http://localhost:8000/products/${id}`, {
-      method: 'DELETE',
-    }).then(res => {
-      setIsUpdated(true);
-    });
+    setManageList(manageList.filter(product => product.id !== id));
   };
 
   return (
@@ -37,7 +30,7 @@ export default function Management() {
                   key={product.id}
                   id={product.id}
                   name={product.name}
-                  images={product.images}
+                  images={product.url}
                   date={product.date}
                   show={product.show}
                   productDelete={handleDelete}
