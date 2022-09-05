@@ -4,7 +4,9 @@ import styled from 'styled-components';
 const LeftSection = () => {
   return (
     <Ul>
-      <Li>주문 조회</Li>
+      <Li>
+        <span>주문 조회</span>
+      </Li>
     </Ul>
   );
 };
@@ -17,6 +19,9 @@ const Ul = styled.ul`
 const Li = styled.li`
   margin-bottom: 0.5rem;
   cursor: pointer;
+  span {
+    border-bottom: 2px solid green;
+  }
 `;
 
 export default LeftSection;
