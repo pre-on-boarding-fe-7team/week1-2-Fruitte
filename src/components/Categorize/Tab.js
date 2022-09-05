@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
+import 'bootstrap/dist/css/bootstrap.css';
 import { Nav } from 'react-bootstrap';
 import DetailInfo from '../Categorize/detailInfo';
 import Review from '../Categorize/review';
@@ -65,12 +66,13 @@ function Tabcontent(props) {
 const Tabs = styled.div`
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 60px;
 
   .nav {
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    width: 650px;
+    width: 800px;
   }
   .navItem {
     padding: 20px 50px;
