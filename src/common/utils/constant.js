@@ -5,6 +5,8 @@ export const ROUTE = {
   REGIST: '/regist',
   DETAIL: '/detail',
   DETAIL_ID: '/detail/:id',
+  ORDER: '/order',
+  ORDER_ID: '/order/:id',
   NOT_FOUND: '*',
 };
 

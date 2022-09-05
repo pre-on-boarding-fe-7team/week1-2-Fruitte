@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import Tab from '../Categorize/Tab';
 import { get } from '../../api/api';
+import { ROUTE } from '../../common/utils/constant';
+import Tab from '../Categorize/Tab';
 
 function ProductDetail() {
+  const navigate = useNavigate();
   let [items, setItems] = useState([]);
   let { id } = useParams();
 
@@ -188,7 +190,7 @@ function ProductDetail() {
                 {sum * (changecount[0] + changecount[1] + changecount[2])} 원
               </TotalSum>
               <BtnState>
-                <BuyBtn>구매하기</BuyBtn>
+                <BuyBtn onClick={() => navigate(`${ROUTE.ORDER}/${id}`)}>구매하기</BuyBtn>
                 <CartBtn>장바구니</CartBtn>
                 <HartBtn>♡</HartBtn>
               </BtnState>
