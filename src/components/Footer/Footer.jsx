@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { RiKakaoTalkFill } from 'react-icons/ri';
 import { SiMicrodotblog } from 'react-icons/si';
+import { Link } from 'react-router-dom';
+
 import { Footers, TopFooter, BootmFooter, InnerFooter, Copyright } from './Footer.style';
 
 export default function Footer() {

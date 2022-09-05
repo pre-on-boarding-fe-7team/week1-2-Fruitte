@@ -1,6 +1,7 @@
+import { MdDelete } from 'react-icons/md';
+
 import Sales from './Sales';
 import { Button, Container, Left, Right } from './SalesList.style';
-import { MdDelete } from 'react-icons/md';
 
 const SalesList = ({ list, changeHandler, deleteHandler }) => {
   return list.map(item => (

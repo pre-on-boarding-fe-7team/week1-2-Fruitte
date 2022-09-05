@@ -1,8 +1,9 @@
 import React from 'react';
+
 import LeftSection from './LeftSection/LeftSection';
 import MyInfo from './MyInfo/MyInfo';
-import OrderTable from './OrderTable/OrderTable';
 import { Section, Container, RightSection, H2 } from './OrderDetail.style';
+import OrderTable from './OrderTable/OrderTable';
 
 const OrderDetail = () => {
   return (

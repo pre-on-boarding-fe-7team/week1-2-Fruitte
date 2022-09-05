@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
+
 import { get } from '../../api/api';
-import ManagementProduct from './ManagementProduct';
 import ManagementLnb from './Lnb/ManagementLnb';
 import { ManagementWrapper, Container, ProductList } from './Management.style';
+import ManagementProduct from './ManagementProduct';
 
 export default function Management() {
   const [manageList, setManageList] = useState([]);

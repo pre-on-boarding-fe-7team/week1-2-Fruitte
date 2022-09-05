@@ -1,13 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
+
 import { ROUTE } from './common/utils/constant';
-import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import ProductsList from './components/ProductsList';
+import Header from './components/Header/Header';
 import Management from './components/Management/Management';
-import OrderDetail from './components/OrderDetail/OrderDetail';
-import Registration from './components/Registration/Registration';
-import ProductDetail from './components/ProductsDetail/ProductDetail';
 import NotFound from './components/NotFound/NotFound';
+import OrderDetail from './components/OrderDetail/OrderDetail';
+import ProductDetail from './components/ProductsDetail/ProductDetail';
+import ProductsList from './components/ProductsList';
+import Registration from './components/Registration/Registration';
 
 function App() {
   return (

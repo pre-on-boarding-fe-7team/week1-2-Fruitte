@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { IoTrashBin } from 'react-icons/io5';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
+import { IoTrashBin } from 'react-icons/io5';
+
 import {
   Li,
   Img,
