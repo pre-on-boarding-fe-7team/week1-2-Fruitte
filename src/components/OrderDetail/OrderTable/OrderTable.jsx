@@ -18,7 +18,7 @@ const OrderTable = () => {
   }, []);
 
   const onClick = id => {
-    navigate(`/${ROUTE.DETAIL}/${id}`);
+    navigate(`${ROUTE.DETAIL}/${id - 1}`);
   };
 
   return (
