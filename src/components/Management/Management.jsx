@@ -1,18 +1,17 @@
 import { useState, useEffect } from 'react';
+import { get } from '../../api/api';
 import ManagementProduct from './ManagementProduct';
 import ManagementLnb from './Lnb/ManagementLnb';
 import { ManagementWrapper, Container, ProductList } from './Management.style';
 
 export default function Management() {
   const [manageList, setManageList] = useState([]);
+  const getProductsList = async () => {
+    const res = await get();
+    setManageList(res.products);
+  };
   useEffect(() => {
-    fetch('/data/data.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        setManageList(data.products);
-      });
+    getProductsList();
   }, []);
 
   const handleDelete = id => {
