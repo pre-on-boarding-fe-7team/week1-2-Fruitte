@@ -3,7 +3,8 @@ export const ROUTE = {
   MY_PAGE: '/mypage',
   MANAGE: '/manage',
   REGIST: '/regist',
-  DETAIL: '/detail/:id',
+  DETAIL: '/detail',
+  DETAIL_ID: '/detail/:id',
   NOT_FOUND: '*',
 };
 
