@@ -5,10 +5,6 @@ export const Left = styled.div`
   max-width: 90%;
   display: flex;
   flex-wrap: wrap;
-
-  & input {
-    width: 90%;
-  }
 `;
 
 export const Right = styled.div`
@@ -22,4 +18,11 @@ export const Button = styled.button`
   & + button {
     margin-left: 4px;
   }
+`;
+
+export const Container = styled.div`
+  width: 100%;
+  margin-bottom: 4px;
+  display: flex;
+  flex-wrap: wrap;
 `;

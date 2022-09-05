@@ -1,6 +1,5 @@
-import Container from './Container';
 import Sales from './Sales';
-import { Button, Left, Right } from './SalesList.style';
+import { Button, Container, Left, Right } from './SalesList.style';
 import { MdDelete } from 'react-icons/md';
 
 const SalesList = ({ list, changeHandler, deleteHandler }) => {
