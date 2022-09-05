@@ -56,8 +56,8 @@ function ProductsList() {
       </Total>
       <Ol>
         {products?.slice(offest, offest + PAGINATION_LIMIT).map((product, index) => (
-          <Li key={product.id} onClick={() => navigate(`${ROUTE.DETAIL}/${product.id - 1}`)}>
-            <ImgWrapper>
+          <Li key={product.id}>
+            <ImgWrapper onClick={() => navigate(`${ROUTE.DETAIL}/${product.id - 1}`)}>
               <Img src={product.url} alt="이미지입니다." />
               <DescriptionContainer>
                 <Detail>원산지: {product.from}</Detail>
