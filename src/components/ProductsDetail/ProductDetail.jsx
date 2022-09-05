@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Data from '../../data/data.json';
 import styled from 'styled-components';
 import Tab from '../Categorize/Tab';
+import { get } from '../../api/api';
 
 function ProductDetail() {
-  let [items] = useState(Data.products);
+  let [items, setItems] = useState([]);
   let { id } = useParams();
+
+  const getData = async () => {
+    const res = await get();
+    setItems(res.products);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
 
   const OPTIONS = [
     { value: '배송비(선결제)', name: '배송비(선결제)' },
