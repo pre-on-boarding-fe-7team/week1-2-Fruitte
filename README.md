@@ -133,3 +133,7 @@ npm start
 ## 데모 영상
 
 https://drive.google.com/file/d/1lucKq6OUpRk590EiGtYnQ9rWJNaHjYu9/view?usp=sharing
+
+## 배포 링크
+
+http://tedjv.s3-website.ap-northeast-2.amazonaws.com/
